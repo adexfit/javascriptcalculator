@@ -15,6 +15,7 @@ function div(a, b){
 }
 
 let wrong = "Wrong input"
+let operations = ['+', '-', '/', '*'];
 
 function calculation(){
     let answer;
@@ -23,23 +24,29 @@ function calculation(){
     let num2 = parseFloat(prompt("Enter second number "), 10);
 
 
-     if(opera == "+"){
-        answer = add(num1, num2);
-        document.getElementById("answer").innerHTML = answer;
-     }
-     else if(opera == "-"){ 
-        answer = sub(num1, num2)
-        document.getElementById("answer").innerHTML = answer;
-     }
-     else if(opera == "*"){
-        answer = mult(num1, num2)
-        document.getElementById("answer").innerHTML = answer;
-     }
-     else if(opera == "/"){
-        answer = div(num1, num2)
-        document.getElementById("answer").innerHTML = answer;
-     }
-     else{
-        document.getElementById("answer").innerHTML = wrong;
-     }
+      if(operations.includes(opera)){
+         
+         if(opera == "+"){
+            answer = add(num1, num2);
+            answer !== answer ? document.getElementById("answer").innerHTML = wrong : document.getElementById("answer").innerHTML = answer;
+         }
+         else if(opera == "-"){ 
+            answer = sub(num1, num2)
+            answer !== answer ? document.getElementById("answer").innerHTML = wrong : document.getElementById("answer").innerHTML = answer;
+         }
+         else if(opera == "*"){
+            answer = mult(num1, num2)
+            answer !== answer ? document.getElementById("answer").innerHTML = wrong : document.getElementById("answer").innerHTML = answer;
+         }
+         else if(opera == "/"){
+            answer = div(num1, num2)
+            answer !== answer ? document.getElementById("answer").innerHTML = wrong : document.getElementById("answer").innerHTML = answer;
+         }
+         else{
+            document.getElementById("answer").innerHTML = wrong;
+         }
+      } else{
+         document.getElementById("answer").innerHTML = 'Invalid mathematical operation';
+      }
+
 }
